@@ -217,6 +217,9 @@ public class LexicalAnalyzer {
 			}else if(tk == TokenType.GREATER_THAN){
 				lexeme ="gt";
 				return lexeme;
+			}else if(tk == TokenType.LESS_THAN){
+				lexeme ="lt";
+				return lexeme;
 			}else if(tk == TokenType.LESS_THAN_OR_EQUAL){
 				lexeme ="leq";
 				return lexeme;
@@ -390,7 +393,7 @@ public class LexicalAnalyzer {
 							tokenVal = tokenVal + nextChar;
 							fileReader.mark(1024);
 							nextChar = (char) fileReader.read();
-							if(nextChar == '0' || nextChar == '-'){
+							while(nextChar == '0' || nextChar == '-'){
 								tokenType = TokenType.FLOAT_NUM;
 								tokenVal = tokenVal + nextChar;
 								fileReader.mark(1024);

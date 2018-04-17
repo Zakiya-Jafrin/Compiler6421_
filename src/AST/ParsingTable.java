@@ -8,6 +8,7 @@ public class ParsingTable {
     static String predictSet[][] = {
             {"1", "prog", "class int float id program", "; funcBody program funcDefList classDeclList"},
 
+
             {"2","classDeclList","class", "classDeclList classDecl"},
             {"3","classDeclList","program int float id", "EPSILON"},
 
@@ -34,6 +35,7 @@ public class ParsingTable {
             {"19","varStatLf","id","optVarStat ; arraySizeList id"},
             {"20","varStatLf","[ ( = .","statementList ; expr assignOp variableLf"},
 
+
             {"21","classDecl","class", "; } optVarFuncDecl { optclassDecl id class"},
             {"22","funcDef","int float id", "; funcBody funcHead"},
 
@@ -47,6 +49,7 @@ public class ParsingTable {
             {"28","optVarFuncDecl","}", "EPSILON"},
             {"29","optVarFuncDeclList","[ ;", "optVarFuncDecl ; arraySizeList"},
             {"30","optVarFuncDeclList","(", "funcDeclList ; ) fParams ("},
+
 
             {"31","funcDeclList","int float id", "funcDeclList funcDecl"},
             {"32","funcDeclList","}", "EPSILON"},
@@ -93,6 +96,7 @@ public class ParsingTable {
             {"61","variable","id","variableLf id"},
             {"62","variableLf","[ .", "optVariable indiceList"},
             {"63","variableLf","(","variable . ) aParams ("},
+
 
             {"64","optVariable",".","variable ."},
             {"65","optVariable","= )","EPSILON"},
@@ -147,9 +151,17 @@ public class ParsingTable {
             {"103","factor","not", "factor not"},
             {"104","factor","+ -", "factor sign"},
             {"105","factorLf","id","factorList factorLff id"},
+            {"105","factorLf","id","factorList factorLff id"},
             {"106","factorLff","[","indiceList"},
             {"107","factorLff","(",") aParams ("},
             {"108","factorList","* / and + - or ] ) eq neq lt gt leq geq , ;", "EPSILON"},
+
+//          for Skip Errors
+            {"109","varStatLf","}","EPSILON"},
+            {"110","optVarFuncDeclList","}", "EPSILON"},
+            {"111","variableLf","= )","EPSILON"},
+            {"112", "prog", "$", "EPSILON"},
+            {"113","factorLff",". * / and + - or ] ) eq neq lt gt leq geq , ;", "EPSILON"},
 
     };
 
@@ -171,7 +183,7 @@ public class ParsingTable {
             "relOp","relOp","relOp","relOp","relOp","relOp","addOp","addOp","addOp","multOp","multOp","multOp",
             "indiceList","indiceList","term","termLf","termLf",
             "indice","sign","sign", "factor","factor","factorList","factor","factor","factor","factor","factorLf","factorLff",
-            "factorLff","factorList"};
+            "factorLff","factorList","varStatLf", "optVarFuncDeclList","variableLf","prog", "factorLff"};
 
 
     static Hashtable<String, String> getnonTerminal = new Hashtable<String, String>(120);
@@ -225,6 +237,7 @@ public class ParsingTable {
                         if(tokecnMatched.equals(tk)|| tokecnMatched.equals(matchType)){
                             tokecnMatched= rule;
                             ruletoApply = tokecnMatched;
+//                            System.out.println(ruletoApply);
 //                            grammerToApply(ruletoApply);
                         }
                     }

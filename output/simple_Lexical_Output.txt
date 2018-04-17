@@ -1,11 +1,4 @@
-Token recognized as 'CLASS' : 'class' at Line number :1
-Token recognized as 'ID' : 'a' at Line number :1
-Token recognized as 'LBRACE' : '{' at Line number :1
-Token recognized as 'INT' : 'int' at Line number :2
-Token recognized as 'ID' : 'a' at Line number :2
-Token recognized as 'ASSIGN' : '=' at Line number :2
-Token recognized as 'INT_NUM' : '1' at Line number :2
-Token recognized as 'PLUS' : '+' at Line number :2
-Token recognized as 'INT_NUM' : '1' at Line number :2
-Token recognized as 'SEMICOLON' : ';' at Line number :2
-Token recognized as 'RBRACE' : '}' at Line number :3
+Token recognized as 'FLOAT_NUM' : '1.0' at Line number :1
+Token recognized as 'INT_NUM' : '0' at Line number :1
+Token recognized as 'INT_NUM' : '0' at Line number :1
+Token recognized as 'INT_NUM' : '3' at Line number :1

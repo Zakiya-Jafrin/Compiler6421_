@@ -59,3 +59,60 @@
 //        put ( minValue ) ;
 //    };
 //}
+
+//prog	'program', ε, 'class', 'int', 'float', 'id'
+//        classDeclRep	ε, 'class'
+//        funcDefRep	ε, 'int', 'float', 'id'
+//        funcBody	'{'
+//        varStatOpt	'id', ε, 'int', 'float', 'if', 'for', 'get', 'put', 'return'
+//        varBuiltInType	'int', 'float'
+//        statOpt	'if', 'for', 'get', 'put', 'return'
+//        varStatChoice	'id', '(', ε, 'lsq', '.', '='
+//        classDecl	'class'
+//        statRep	ε, 'if', 'for', 'get', 'put', 'return', 'id'
+//        baseClassOpt	':', ε
+//
+//
+//        varFuncDeclOpt	ε, 'int', 'float', 'id'
+//        varFuncDeclOptTail	';', '(', ε, 'lsq'
+//        funcDeclRep	ε, 'int', 'float', 'id'
+//        statement	'if', 'for', 'get', 'put', 'return', 'id'
+//        baseClassRep	',', ε
+//        type	'int', 'float', 'id'
+//        ownerClassOpt	'sr', ε
+//        fParams	ε, 'int', 'float', 'id'
+//        arrSizeRep	ε, 'lsq'
+//        exprTail	ε, 'eq', 'neq', 'lt', 'gt', 'leq', 'geq'
+//        statBlock	'{', ε, 'if', 'for', 'get', 'put', 'return', 'id'
+//        assignOp	'='
+//        variable	'id'
+//        variableTail	'(', ε, 'lsq', '.'
+//        variableOpt	'.', ε
+//        fParamsTailRep	ε, ','
+//        arraySize	'lsq'
+//        arithExprTail	ε, '+', '-', 'or'
+//        relOp	'eq', 'neq', 'lt', 'gt', 'leq', 'geq'
+//        indiceRep	ε, 'lsq'
+//        fParamsTail	','
+//        addOp	'+', '-', 'or'
+//        termTail	ε, '*', '/', 'and'
+//        indice	'lsq'
+//        multOp	'*', '/', 'and'
+//        factor	'intNum', 'floatNum', '(', 'not', 'id', '+', '-'
+//        varFuncCallOpt	'id'
+//        varFuncCallChoice	'(', ε, 'lsq'
+//        factorTail	'.', ε
+//        aParams	ε, 'intNum', 'floatNum', '(', 'not', 'id', '+', '-'
+//        sign	'+', '-'
+//        aParamsTailRep	ε, ','
+//        aParamsTail	','
+//        varOpt	'int', 'float'
+//        funcHead	'int', 'float', 'id'
+//        funcDecl	'int', 'float', 'id'
+//        assignStat	'id'
+//        funcDef	'int', 'float', 'id'
+//        term	'intNum', 'floatNum', '(', 'not', 'id', '+', '-'
+//        arithExpr	'intNum', 'floatNum', '(', 'not', 'id', '+', '-'
+//        expr	'intNum', 'floatNum', '(', 'not', 'id', '+', '-'
+//        relExpr	'intNum', 'floatNum', '(', 'not', 'id', '+', '-'
+//

@@ -33,6 +33,8 @@ public class Parser {
             "intNum","floatNum","not",".","[","]","int","float",",","eq","neq","lt","gt","leq",
             "geq","or","*","/","and","$"};
 
+
+
     private List belongsto = Arrays.asList(terminalSymbols);
     private String grammer = "check";
     String lastnontermPop= null;
@@ -64,14 +66,16 @@ public class Parser {
             } else {
                 if (!grammer.equals("EPSILON")) {
                     String theRule = ParsingTable.getPredictSet(x, curToken);
-                    if (theRule != null) {
+//                    if (theRule != null && !theRule.equals("109")&& !theRule.equals("110")&&
+//                            !theRule.equals("111")&& !theRule.equals("112")&& !theRule.equals("113")) {
+                    if (theRule != null){
                         lastnontermPop = stack.pop().toString();
 //                        System.out.println("Successfully popped :'" + lastnontermPop);
                         String[] pushReverse = ParsingTable.grammerToApply(theRule);
                         for (int i = 0; i <= pushReverse.length - 1; i++) {
                             if (pushReverse[i].equals("EPSILON")) {
                                 grammer = "EPSILON";
-                                System.out.println("EPSILON");
+//                                System.out.println("EPSILON");
                             } else {
                                 stack.push(pushReverse[i]);
 //                                System.out.println("Successfully pushed :'" + pushReverse[i]);
@@ -96,16 +100,17 @@ public class Parser {
     }
 
     public String skipError(){
-        System.out.println("Syntax error : " + curToken);
-        try {
-            writetoFile(ouputFileName, "Syntax Error : '" + curToken + "' "+ "\r\n" );
-        }catch (Exception e){
-            System.out.println(e);
-        }
-
-        curToken = LexicalAnalyzer.nextToken();
         if(curToken.equals("$")){
             stack.pop();
+        }else{
+            System.out.println("Syntax error : " + curToken);
+            try {
+                writetoFile(ouputFileName, "Syntax Error : '" + curToken + "' "+ "\r\n" );
+            }catch (Exception e){
+                System.out.println(e);
+            }
+
+            curToken = LexicalAnalyzer.nextToken();
         }
         return curToken;
     }
